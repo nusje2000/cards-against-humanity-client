@@ -27,8 +27,7 @@ abstract class BaseCard extends StatelessWidget {
                 fontFamily: 'Helvetica Neue',
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
-                color:
-                    color.computeLuminance() > .5 ? Colors.black : Colors.white,
+                color: color.computeLuminance() > .5 ? Colors.black : Colors.white,
               ),
             ),
           ),
