@@ -10,10 +10,18 @@ abstract class BaseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
-      width: 300,
+      width: 250,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: color,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black54,
+            spreadRadius: 0,
+            blurRadius: 5,
+            offset: Offset(3, 3)
+          )
+        ]
       ),
       child: AspectRatio(
         aspectRatio: 63 / 88,
