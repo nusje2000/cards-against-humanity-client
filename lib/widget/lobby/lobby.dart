@@ -3,48 +3,75 @@ import 'package:flutter/material.dart';
 class Lobby extends StatelessWidget {
   final String roomName;
   final String roomId;
+  final TextStyle smalltextStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Helvetica Neue',
+    fontSize: 14,
+  );
 
   Lobby({@required this.roomName, @required this.roomId});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey,
-      child: Column(
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.blueGrey,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      height: 120,
+      child: Row(
         children: [
-          Expanded(
-            flex: 3,
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(roomName),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: GestureDetector(
-              onTap: () {},
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(.5),
-                  border: Border(bottom: BorderSide(color: Colors.blueGrey)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                roomName,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Helvetica Neue',
+                  fontSize: 20,
                 ),
-                alignment: Alignment.center,
-                width: double.maxFinite,
-                child: Text('Join'),
               ),
-            ),
+              Text('In progress', style: smalltextStyle),
+              Spacer(),
+              Text('Players: 6 / 10', style: smalltextStyle),
+              Text('Spectators: 0 / 10', style: smalltextStyle),
+            ],
           ),
-          Expanded(
-            flex: 1,
-            child: GestureDetector(
-              onTap: () {},
-              child: Container(
-                color: Colors.white.withOpacity(.5),
-                alignment: Alignment.center,
-                width: double.maxFinite,
-                child: Text('Spectate'),
+          Spacer(),
+          Column(
+            children: [
+              RaisedButton(
+                onPressed: () {},
+                child: Text(
+                  'Spectate',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                color: Colors.blue,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18),
+                ),
               ),
-            ),
+              Spacer(),
+              RaisedButton(
+                onPressed: () {},
+                child: Text(
+                  'Join',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                color: Colors.green,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
+            ],
           ),
         ],
       ),
