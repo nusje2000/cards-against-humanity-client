@@ -13,6 +13,10 @@ class _CardDisplayPageState extends State<CardDisplayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Card Examples'),
+        backgroundColor: Color.fromRGBO(55, 71, 79, 1),
+      ),
       backgroundColor: widget.backgroundColor,
       body: SafeArea(
         child: Center(
@@ -21,7 +25,7 @@ class _CardDisplayPageState extends State<CardDisplayPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               QuestionCard('Example Question?'),
-              SizedBox(height: 50),
+              SizedBox(height: 20),
               AnswerCard('Example Answer.'),
             ],
           ),
