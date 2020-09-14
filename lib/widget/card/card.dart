@@ -29,7 +29,7 @@ abstract class BaseCard extends StatelessWidget {
           onTap: () {},
           child: Center(
             child: Text(
-              text,
+              text ?? '',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: 'Helvetica Neue',
