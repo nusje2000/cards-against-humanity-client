@@ -1,3 +1,5 @@
+import 'package:cards_against_humanity/screen/card_display_page.dart';
+import 'package:cards_against_humanity/screen/room_page.dart';
 import 'package:flutter/material.dart';
 
 class Lobby extends StatelessWidget {
@@ -43,7 +45,11 @@ class Lobby extends StatelessWidget {
           Column(
             children: [
               RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => CardDisplayPage(),
+                  ));
+                },
                 child: Text(
                   'Spectate',
                   style: TextStyle(
@@ -58,7 +64,11 @@ class Lobby extends StatelessWidget {
               ),
               Spacer(),
               RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) => RoomPage(roomName: roomName),
+                  ));
+                },
                 child: Text(
                   'Join',
                   style: TextStyle(
