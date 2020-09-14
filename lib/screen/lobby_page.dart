@@ -37,12 +37,8 @@ class _LobbyPageState extends State<LobbyPage> {
         child: ListView.separated(
           padding: EdgeInsets.all(8),
           itemCount: widget.lobbies.length,
-          itemBuilder: (BuildContext context, int index) {
-            return widget.lobbies[index];
-          },
-          separatorBuilder: (BuildContext context, int index) {
-            return SizedBox(height: 8);
-          },
+          itemBuilder: (BuildContext context, int index) => widget.lobbies[index],
+          separatorBuilder: (BuildContext context, int index) => SizedBox(height: 8),
         ),
       ),
     );
