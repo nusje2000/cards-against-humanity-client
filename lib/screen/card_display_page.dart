@@ -20,9 +20,9 @@ class _CardDisplayPageState extends State<CardDisplayPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              QuestionCard('Example Text'),
+              QuestionCard('Example Question?'),
               SizedBox(height: 50),
-              AnswerCard('Example Text'),
+              AnswerCard('Example Answer.'),
             ],
           ),
         ),
