@@ -1,10 +1,11 @@
-import 'package:cards_against_humanity/screen/lobby_page.dart';
+import 'package:cards_against_humanity/model/room.dart';
+import 'package:cards_against_humanity/screen/rooms_page.dart';
 import 'package:flutter/material.dart';
 
 class RoomPage extends StatefulWidget {
-  final String roomName;
+  final Room room;
 
-  const RoomPage({Key key, @required this.roomName}) : super(key: key);
+  const RoomPage(this.room, {Key key}) : super(key: key);
 
   @override
   _RoomPageState createState() => _RoomPageState();
@@ -13,25 +14,28 @@ class RoomPage extends StatefulWidget {
 class _RoomPageState extends State<RoomPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.roomName),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.room.name),
+          backgroundColor: Color.fromRGBO(55, 71, 79, 1),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(
+                  builder: (context) => RoomsPage(),
+                ));
+              },
+            ),
+          ],
+        ),
         backgroundColor: Color.fromRGBO(55, 71, 79, 1),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(
-                builder: (context) => LobbyPage(),
-              ));
-            },
+        body: SafeArea(
+          child: Center(
+            child: Text('nice lobby bro'),
           ),
-        ],
-      ),
-      backgroundColor: Color.fromRGBO(55, 71, 79, 1),
-      body: SafeArea(
-        child: Center(
-          child: Text('nice lobby bro'),
         ),
       ),
     );

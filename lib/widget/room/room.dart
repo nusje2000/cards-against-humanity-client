@@ -69,7 +69,7 @@ class RoomRow extends StatelessWidget {
               RaisedButton(
                 onPressed: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) => RoomPage(roomName: room.name),
+                    builder: (context) => RoomPage(room),
                   ));
                 },
                 child: Text(

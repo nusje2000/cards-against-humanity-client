@@ -3,12 +3,12 @@ import 'package:cards_against_humanity/service/game_service.dart';
 import 'package:cards_against_humanity/widget/room/room.dart';
 import 'package:flutter/material.dart';
 
-class LobbyPage extends StatefulWidget {
+class RoomsPage extends StatefulWidget {
   @override
-  _LobbyPageState createState() => _LobbyPageState();
+  _RoomsPageState createState() => _RoomsPageState();
 }
 
-class _LobbyPageState extends State<LobbyPage> {
+class _RoomsPageState extends State<RoomsPage> {
   Future<List<Room>> futureGames;
 
   @override
