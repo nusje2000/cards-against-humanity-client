@@ -14,28 +14,27 @@ class RoomPage extends StatefulWidget {
 class _RoomPageState extends State<RoomPage> {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.room.name),
-          backgroundColor: Color.fromRGBO(55, 71, 79, 1),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.exit_to_app),
-              onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) => RoomsPage(),
-                ));
-              },
-            ),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.room.name),
         backgroundColor: Color.fromRGBO(55, 71, 79, 1),
-        body: SafeArea(
-          child: Center(
-            child: Text('nice lobby bro'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RoomsPage(),
+                  ));
+            },
           ),
+        ],
+      ),
+      backgroundColor: Color.fromRGBO(55, 71, 79, 1),
+      body: SafeArea(
+        child: Center(
+          child: Text('nice lobby bro'),
         ),
       ),
     );
