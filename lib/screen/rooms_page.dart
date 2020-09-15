@@ -27,7 +27,11 @@ class _RoomsPageState extends State<RoomsPage> {
         actions: [
           IconButton(
             icon: Icon(Icons.refresh),
-            onPressed: () {},
+            onPressed: () {
+              setState(() {
+                futureGames = fetchGames();
+              });
+            },
           ),
         ],
       ),
