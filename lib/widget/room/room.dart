@@ -1,17 +1,17 @@
+import 'package:cards_against_humanity/model/room.dart';
 import 'package:cards_against_humanity/screen/card_display_page.dart';
 import 'package:cards_against_humanity/screen/room_page.dart';
 import 'package:flutter/material.dart';
 
-class Lobby extends StatelessWidget {
-  final String roomName;
-  final String roomId;
+class RoomRow extends StatelessWidget {
+  final Room room;
   final TextStyle smalltextStyle = TextStyle(
     fontWeight: FontWeight.bold,
     fontFamily: 'Helvetica Neue',
     fontSize: 14,
   );
 
-  Lobby({@required this.roomName, @required this.roomId});
+  RoomRow(this.room);
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +28,20 @@ class Lobby extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                roomName,
+                room.name,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Helvetica Neue',
                   fontSize: 20,
                 ),
               ),
-              Text('In progress', style: smalltextStyle),
+              Text(
+                room.isStarted ? 'In progress' : 'Not started',
+                style: smalltextStyle,
+              ),
               Spacer(),
-              Text('Players: 6 / 10', style: smalltextStyle),
-              Text('Spectators: 0 / 10', style: smalltextStyle),
+              Text('Players: ${room.players} / ${room.maxPlayers}', style: smalltextStyle),
+              Text('Spectators: ${room.spectators} / ${room.maxSpectators}', style: smalltextStyle),
             ],
           ),
           Spacer(),
@@ -66,7 +69,7 @@ class Lobby extends StatelessWidget {
               RaisedButton(
                 onPressed: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) => RoomPage(roomName: roomName),
+                    builder: (context) => RoomPage(room),
                   ));
                 },
                 child: Text(
