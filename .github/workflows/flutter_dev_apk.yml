@@ -19,8 +19,8 @@ jobs:
           channel: 'stable'
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build apk
+      - run: flutter build apk -t lib/main_dev.dart
       - uses: actions/upload-artifact@v2
         with:
           name: apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
